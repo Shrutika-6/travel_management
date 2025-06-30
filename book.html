@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Trip - Travel Management System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-image: url('https://images.unsplash.com/photo-1524230659092-07f99a75c013?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3498db;
+        }
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #2980b9;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        form {
+            display: grid;
+            gap: 20px;
+        }
+        label {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        button {
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .success {
+            background-color: #2ecc71;
+            color: #fff;
+        }
+        .error {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+        .state-images {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .state-image {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .state-image:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav ul {
+                margin-top: 10px;
+            }
+            nav ul li {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+            .state-images {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .state-image {
+                margin: 5px;
+            }
+        }
+    </style>
+    <script>
+        // This function will update the hotel options based on selected state
+        function updateHotels(state) {
+            var hotelSelect = document.getElementById("hotel");
+            hotelSelect.innerHTML = "";  // Clear previous options
+
+            // Send a request to the PHP server to fetch hotels for the selected state
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "fetch_hotels.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.length > 0) {
+                        response.forEach(function(hotel) {
+                            var option = document.createElement("option");
+                            option.value = hotel;
+                            option.textContent = hotel;
+                            hotelSelect.appendChild(option);
+                        });
+                    } else {
+                        var option = document.createElement("option");
+                        option.textContent = "No hotels available";
+                        hotelSelect.appendChild(option);
+                    }
+                }
+            };
+            xhr.send("state=" + state);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Travello</div>
+            <nav>
+                <ul>
+                    <li><a href="http://localhost/tms/main/main_page.html">Home</a></li>
+                    <li><a href="http://localhost/tms/main/destination.html">Destinations</a></li>
+                    <li><a href="http://localhost/tms/main/aboutus.html">About Us</a></li>
+                    <li><a href="http://localhost/tms/main/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <h1>Book Your Dream Trip</h1>
+        <div class="state-images">
+            <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=240&h=160&fit=crop&q=80" alt="Rajasthan" class="state-image">
+            <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=240&h=160&fit=crop&q=80" alt="Kerala" class="state-image">
+            <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=240&h=160&fit=crop&q=80" alt="Goa" class="state-image">
+            <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=240&h=160&fit=crop&q=80" alt="Himachal Pradesh" class="state-image">
+            <img src="https://images.unsplash.com/photo-1558431382-27e303142255?w=240&h=160&fit=crop&q=80" alt="West Bengal" class="state-image">
+            <img src="https://images.unsplash.com/photo-1590579491624-f98f36d4c763?w=240&h=160&fit=crop&q=80" alt="Gujarat" class="state-image">
+        </div>
+        <form action="book.php" method="post">
+            <div>
+                <label for="state">Choose State:</label>
+                <select name="state" id="state" required onchange="updateHotels(this.value)">
+                    <option value="">Select a state</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="West Bengal">West Bengal</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Maharastra">Maharastra</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="	
+                    Telangana">	
+                        Telangana</option>
+                </select>
+            </div>
+            <div>
+                <label for="hotel">Choose Hotel:</label>
+                <select name="hotel" id="hotel" required>
+                    <option value="">Select a hotel</option>
+                    <?php
+                        // Display hotels for the state selected if available
+                        if (!empty($hotel)) {
+                            foreach ($hotel as $hotel) {
+                                echo "<option value='$hotel'>$hotel</option>";
+                            }
+                        }
+                    ?>
+                </select>
+            </div>
+            <div>
+                <label for="check_in">Check-in Date:</label>
+                <input type="date" name="check_in" id="check_in" required>
+            </div>
+            <div>
+                <label for="check_out">Check-out Date:</label>
+                <input type="date" name="check_out" id="check_out" required>
+            </div>
+            <div>
+                <label for="guests">Number of Guests:</label>
+                <input type="number" name="guests" id="guests" min="1" max="10" required>
+            </div>
+            <div>
+                <label for="name">Full Name:</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" name="phone" id="phone" required>
+            </div>
+            <button type="submit">Book Now</button>
+        </form>
+        <footer>
+            <p>&copy; 2024 TravelEase. All rights reserved. | Terms of Service | Privacy Policy</p>
+        </footer>
+    </div>
+</body>
+</html>

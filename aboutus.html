@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - TravelEase Tour Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3498db;
+        }
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #2980b9;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .about-content {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .about-image {
+            flex: 1;
+            max-width: 400px;
+        }
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        .team {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            
+        }
+        .team-member {
+            flex-basis: calc(33.333% - 20px);
+            text-align: center;
+        }
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav ul {
+                margin-top: 10px;
+            }
+            nav ul li {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .about-image {
+                max-width: 100%;
+            }
+            .team-member {
+                flex-basis: calc(50% - 20px);
+            }
+        }
+        .team-members img{
+            filter: invert(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Travello</div>
+            <nav>
+                <ul>
+                    <li><a href="http://localhost/tms/main/homepage.html">Home</a></li>
+                    <li><a href="http://localhost/tms/main/destination.html">Destinations</a></li>
+
+                    <li><a href="http://localhost/tms/main/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <h1>About Travello</h1>
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Our Story</h2>
+                <p>Travello was founded in 2024 with a simple mission: to make travel accessible, enjoyable, and memorable for everyone. Our team of passionate travelers and industry experts work tirelessly to curate the best experiences across India.</p>
+                <p>From the sun-kissed beaches of Goa to the snow-capped peaks of Himachal Pradesh, we've explored every corner of this beautiful country to bring you authentic and unforgettable journeys.</p>
+                <h2>Our Commitment</h2>
+                <p>At TravelEase, we believe in responsible tourism. We work closely with local communities to ensure that our tours not only provide amazing experiences for our clients but also contribute positively to the destinations we visit.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&h=600&fit=crop&q=80" alt="TravelEase Team">
+            </div>
+        </div>
+        <h2 >Meet Our Team</h2>
+        <div class="team">
+            <div class="team-member">
+                <img src="tushar.jpg" alt="Sarah Johnson">
+                <h3>Tushar Kuamr</h3>
+                
+            </div>
+            <div class="team-member">
+                <img src="mansi.jpg" alt="Michael Chen">
+                <h3>Mansi Grover</h3>
+                
+            </div>
+            <div class="team-member">
+                <img src="pratyush.jpg" alt="Priya Patel">
+                <h3>Pratyush Singh</h3>
+               
+            </div>
+            <div class="team-member">
+                <img src="mubba.png" alt="Priya Patel">
+                <h3>Mohd Mubasshir</h3>
+               
+            </div>
+            <div class="team-members">
+                <img src="asserts/logo.png" alt="Priya Patel">
+            </div>
+
+            <div class="team-member">
+                <img src="shrutika.jpg" alt="Priya Patel">
+                <h3>Shrutika Shende</h3>
+               
+            </div>
+            
+        </div>
+        <footer>
+            <p>&copy; 2024 Travello. All rights reserved. | Terms of Service | Privacy Policy</p>
+        </footer>
+    </div>
+</body>
+</html>

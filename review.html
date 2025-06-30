@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Review - Travel Management System</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 20px;
+        }
+
+        /* Container for the Feedback Form */
+        .feedback-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            position: absolute;
+            margin-top: 160px;
+        }
+
+        /* Heading Styling */
+        h1 {
+            font-size: 2.5em;
+            color: #fff;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+
+        }
+
+        /* Form Group Styling */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        /* Label Styling */
+        label {
+            font-size: 1.1em;
+            color: #fff;
+            margin-bottom: 8px;
+            display: block;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        /* Input and Textarea Styling */
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            font-size: 1em;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        /* Textarea Specific Styling */
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Focus Styling */
+        input:focus,
+        textarea:focus {
+            border-color: #00c6ff;
+            box-shadow: 0 0 8px rgba(0,198,255,0.6);
+        }
+
+        /* Button Styling */
+        button {
+
+            background-color: #00c6ff;
+            color: white;
+            padding: 14px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+
+        }
+
+        button:hover {
+            background-color: #0072ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Star Rating Styling */
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+        }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            cursor: pointer;
+            font-size: 30px;
+            color: #ddd;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input:checked ~ label {
+            color: #ffca28;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            .feedback-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+        #nav{
+    height: 65px; /* Adjust the height according to your design */
+    width: 100%;
+    display: flex;
+    padding: 0 20px; /* Adjust padding as needed */
+    gap: 60px;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0; /* Fixed at the top */
+    left: 0; /* Aligns with the left side of the page */
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.7); /* Optional: for a transparent background effect */
+}
+
+#nav img{
+    height: 40px; /* Adjust according to your logo size */
+}
+
+#nav h4{
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 500;
+    color: white; /* Make sure text is visible */
+}
+
+#nav h4:hover{
+    scale: 1.19;
+    color: #95C11E; /* Optional: change text color on hover */
+}
+
+#nav button:hover{
+    scale: 1.03;
+    font-weight: 600;
+    background-color: #95C11E;
+}
+
+#nav button{
+    margin-left: 120px;
+    height: 60%;
+    width: 120px;
+    background-color: transparent;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    color: white; /* Make sure button text is visible */
+}
+        
+    </style>
+</head>
+<body>
+
+    <div id="nav">
+        <img src="asserts/logo.png" alt="Logo" />
+        <a href="main_page.html"><h4>Home</h4></a>
+        <a href="aboutus.html"><h4>About</h4></a>
+        <a href="contact.html"><h4>Service</h4></a>
+        <a href="http://localhost/tms/main/book.html"><h4>Book Now</h4></a>
+        <a href="http://localhost/tms/main/allreview.php"><h4>review</h4></a>
+        <button><a href="http://localhost/tms/main/login.html">Signup</a></button>
+    </div>
+
+    <div class="feedback-container">
+        <h1>We Value Your Feedback!</h1>
+        <form action="submit_review.php" method="POST">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email address">
+            </div>
+
+            <div class="form-group">
+                <label for="review">Your Review:</label>
+                <textarea id="review" name="review" rows="5" required placeholder="Tell us about your experience..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Rating:</label>
+                <div class="star-rating">
+                    <input type="radio" id="star5" name="rating" value="5" required/>
+                    <label for="star5">★</label>
+                    <input type="radio" id="star4" name="rating" value="4"/>
+                    <label for="star4">★</label>
+                    <input type="radio" id="star3" name="rating" value="3"/>
+                    <label for="star3">★</label>
+                    <input type="radio" id="star2" name="rating" value="2"/>
+                    <label for="star2">★</label>
+                    <input type="radio" id="star1" name="rating" value="1"/>
+                    <label for="star1">★</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Submit Review</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

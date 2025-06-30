@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Travello</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            height: 100%;
+            color: #333;
+        }
+        .container {
+            min-height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .contact-info {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .info-section {
+            margin-bottom: 1.5rem;
+        }
+        .info-section h2 {
+            color: #3498db;
+            margin-bottom: 0.5rem;
+        }
+        .info-section p {
+            margin: 0.5rem 0;
+        }
+        .contact-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .decorative-image {
+            position: absolute;
+            width: 100px;
+            height: auto;
+        }
+        .image-top-left {
+            top: 20px;
+            left: 20px;
+            transform: rotate(-15deg);
+        }
+        .image-bottom-right {
+            bottom: 20px;
+            right: 20px;
+            transform: rotate(15deg);
+        }
+        @media (max-width: 600px) {
+            .contact-info {
+                width: 100%;
+                border-radius: 0;
+            }
+            .decorative-image {
+                width: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://images.unsplash.com/photo-1454391304352-2bf4678b1a7a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Decorative compass" class="decorative-image image-top-left">
+        <img src="https://images.unsplash.com/photo-1502920514313-52581002a659?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Decorative suitcase" class="decorative-image image-bottom-right">
+        <main class="contact-info">
+            <h1>Contact Us</h1>
+            <section class="info-section">
+                <h2>Customer Support</h2>
+                <p>For general inquiries and booking assistance:</p>
+                <p class="contact-number">+1 (800) 123-4567</p>
+                <p>Available 24/7</p>
+            </section>
+            <section class="info-section">
+                <h2>Emergency Travel Assistance</h2>
+                <p>For urgent travel-related issues:</p>
+                <p class="contact-number">+1 (888) 987-6543</p>
+                <p>Available 24/7</p>
+            </section>
+            
+            <section class="info-section">
+                <h2>Business Hours</h2>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM (EST)</p>
+                <p>Saturday: 10:00 AM - 4:00 PM (EST)</p>
+                <p>Sunday: Closed</p>
+            </section>
+            <section class="info-section">
+                <h2>Email</h2>
+                <p>General Inquiries: info@travello.com</p>
+                <p>Booking Support: bookings@travello.com</p>
+                <p>Partnership Opportunities: partners@travello.com</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

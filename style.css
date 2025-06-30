@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+/* styles.css */
+::-webkit-scrollbar {
+    width: 10px; /* Set the width of the scrollbar */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #95C11E; /* Highlight color for the scrollbar thumb */
+    border-radius: 5px; /* Rounded corners for the thumb */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #7E9D17; /* Slightly darker color on hover */
+  }
+  
+
+#nav{
+    height: 140px;
+    width: 100%;
+    display: flex;
+    padding: 0 200px;
+    gap: 60px;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    z-index: 100;
+    /* background-color: rgba(0, 0, 0, 0.185); */
+}
+
+#nav img{
+    height: 6vw;
+}
+
+#nav h4{
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+#nav h4:hover{
+    scale: 1.19;
+}
+
+#nav button:hover{
+    scale: 1.03;
+    font-weight: 600;
+    background-color: #95C11E;
+}
+
+#nav button{
+    margin-left: 120px;
+    height: 37%;
+    width: 120px;
+    background-color: transparent;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+#cursorblur{
+    height: 450px;
+    width: 450px;
+    background-color: #c9ff363f;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 1;
+    filter: blur(40px);
+    
+}
+
+#main{
+    position: relative;
+    background-color: whitesmoke;
+}
+
+#page1{
+   
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    z-index: 12;
+}
+
+#next{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    z-index: 12;
+}
+
